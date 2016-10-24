@@ -1,3 +1,15 @@
 <h1>
   {{title}}
 </h1>
+<mymod-mymod></mymod-mymod>
+<mymod-comp></mymod-comp>
+<mymod-comp mymodDir class="red" [prop]="val | pip"></mymod-comp>
+<br>
+myval: {{myval}}
+
+<br>
+public: <input [value]="publicval"> <br>
+private: <input [value]="privateval"> <br>
+
+// so templates have access to private variables of any class, here logger is private in this component and logger.serv is private in logger, yet both are visible in template with no errors
+test: {{logger.serv.getStuff('test')}}
