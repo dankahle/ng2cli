@@ -5,7 +5,8 @@ import {Logger} from "./logger.service";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
   declarations: [CoreComponent],
   providers: [Logger]

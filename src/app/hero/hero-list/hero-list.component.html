@@ -1,0 +1,14 @@
+<h4>Hero List</h4>
+<table>
+  <tr *ngFor="let hero of heroes" (click)="select(hero)" [ngClass]="{selected: hero === curHero}">
+    <td>{{hero.id}}</td>
+    <td>{{hero.name}}</td>
+    <td><a href="javascript:void(0)" (click)="delete($event, hero)">delete</a></td>
+  </tr>
+</table>
+<br>
+<form>
+  <input [(ngModel)]="curHero.name" name="heroName" [attr.autocomplete]="off"><br>
+  <button (click)="addOrNew()" [disabled]="!curHero.name" [innerText]="addText"></button>
+  <button (click)="update()" [disabled]="mode !== Mode.edit">Update</button>
+</form>

@@ -10,6 +10,7 @@ import {Logger} from "./core/logger.service";
 export class AppComponent {
   title = 'app works!';
   val = 'dank';
+  selColor = 'red';
 
   public publicval = 'publicval';
   private privateval = 'privateval';
@@ -18,5 +19,8 @@ export class AppComponent {
     this.title += serv.getStuff('another');
   }
 
+  testEvent(data) {
+    console.log('testevent', data);
+  }
 
 }

@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {MymodModule} from "./mymod/mymod.module";
 import {CoreModule} from "./core/core.module";
+import {HeroModule} from "./hero/hero.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {CoreModule} from "./core/core.module";
     FormsModule,
     HttpModule,
     CoreModule,
-    MymodModule
+    MymodModule,
+    HeroModule
   ],
   providers: [{provide: 'MyVal', useValue: 'use this'}],
   bootstrap: [AppComponent]
