@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {NgDemoChildComponent, Ng2DemoChildComponent} from "../demo-child/demo-child.component";
 
 @Component({
@@ -12,9 +12,11 @@ export class DemoAlertComponent {
 
   @ViewChild(NgDemoChildComponent) ngchild;
   @ViewChild(Ng2DemoChildComponent) ng2child;
+  @ViewChildren('demchild') children;
 
 
   ngAfterViewInit() {
+    this.children.forEach(x => console.log('viewchildren', x.type));
   }
 
 }

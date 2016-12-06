@@ -2,10 +2,22 @@ import {Component, OnInit, Input, SimpleChange, SimpleChanges} from '@angular/co
 import {DemoComponent} from "../demo/demo.component";
 
 
-class DemoChildComponent implements OnInit {
-
+/*
+@Component({
+  // selector: 'demo-child',
+  templateUrl: './demo-child.component.html',
+  styleUrls: ['./demo-child.component.css']
+})
+*/
+export class DemoChildComponent implements OnInit {
+type: string;
+showType() {
+  return 'type>>' + this.type;
+}
+/*
   constructor(private demo:DemoComponent) {
   }
+*/
 
   ngOnInit() {
   }
@@ -25,14 +37,15 @@ export class NgDemoChildComponent extends DemoChildComponent {
   }
   @Input() set count(val:number) {
     this._count = val * 5;
-    console.log('ngchild set count', val, this._count);
+    // console.log('ngchild set count', val, this._count);
   }
+/*
   constructor(demo:DemoComponent) {
     super(demo);
-    console.log('ngcomp');
   }
+*/
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngchild on changes count', changes['count'].currentValue, this._count, changes['count'].isFirstChange());
+    // console.log('ngchild on changes count', changes['count'].currentValue, this._count, changes['count'].isFirstChange());
   }
 }
 
@@ -43,10 +56,11 @@ export class NgDemoChildComponent extends DemoChildComponent {
 })
 export class Ng2DemoChildComponent extends DemoChildComponent {
   type = 'ng2comp';
+/*
   constructor(demo:DemoComponent) {
     super(demo);
-    console.log('ng2comp');
   }
+*/
 }
 
 
