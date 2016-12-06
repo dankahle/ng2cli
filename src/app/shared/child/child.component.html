@@ -1,0 +1,11 @@
+<p>
+  child works!
+  <br>age: {{age}}
+  <br>childcount: {{count}}
+  <br><button (click)="add()">add</button>
+  <br>
+  <label>true: <input type="radio" [(ngModel)]="voteVal" [value]="true" (click)="voteIt(true)"></label>
+  <label>false: <input type="radio" [(ngModel)]="voteVal" [value]="false" (click)="voteIt(false)"></label>
+  <button>vote</button>
+</p>
+

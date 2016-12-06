@@ -1,6 +1,6 @@
-import {Component, Inject} from '@angular/core';
-import {ServService} from "./mymod/shared/serv.service";
-import {Logger} from "./core/logger.service";
+import {Component} from '@angular/core';
+import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
+import {DkModalComponent} from "./shared/dk-modal/dk-modal.component";
 
 @Component({
   selector: 'app-root',
@@ -8,19 +8,28 @@ import {Logger} from "./core/logger.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
-  val = 'dank';
-  selColor = 'red';
+
+  users = [
+    {name:'dank', age:50},
+    {name:'carl', age:60}
+  ]
 
   public publicval = 'publicval';
   private privateval = 'privateval';
 
-  constructor(private logger:Logger, serv:ServService, @Inject('MyVal') public myval) {
-    this.title += serv.getStuff('another');
+  constructor(private ngbModal: NgbModal) {
   }
 
-  testEvent(data) {
-    console.log('testevent', data);
+  openModal() {
+    let modalRef = this.ngbModal.open(DkModalComponent);
+    let dkModalComponent:DkModalComponent = modalRef.componentInstance as DkModalComponent;
+    modalRef.result.then(
+      val => {
+        console.log('stuff from modal comp:', dkModalComponent.stuff);
+        console.log('success', val)
+      },
+      val => console.log('dismiss', val)
+    );
   }
 
 }

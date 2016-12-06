@@ -6,8 +6,13 @@ export class Logger {
 
   public publicval = 'publicval';
   private privateval = 'privateval';
+  init = 0;
 
+  constructor(private serv:ServService) {
+  }
 
-  constructor(private serv:ServService) { }
+  log(msg) {
+    console.log(msg + this.init++);
+  }
 
 }

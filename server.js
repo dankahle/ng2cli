@@ -5,6 +5,8 @@ let express = require('express'),
   port = 4201,
   bodyParser = require('body-parser'),
   routerHero = require('./routerHero'),
+  apiErrorHandler = require('api-error-handler'),
+  proxy = require('proxy-middleware'),
   app = express();
 
 
@@ -27,5 +29,8 @@ app.use((req, url, next) => {
 })
 
 app.use('/api/hero', routerHero)
+app.use('/cnn', proxy('https://en.wikipedia.org/w/api.php'));
+app.use(apiErrorHandler());
+
 
 app.listen(port, () => console.log(`listening on port ${port}`));

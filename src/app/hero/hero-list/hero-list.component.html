@@ -8,7 +8,8 @@
 </table>
 <br>
 <form>
-  <input [(ngModel)]="curHero.name" name="heroName" [attr.autocomplete]="off"><br>
+  <input [(ngModel)]="curHero.name" name="heroName" [attr.autocomplete]="'off'"><br>
   <button (click)="addOrNew()" [disabled]="!curHero.name" [innerText]="addText"></button>
   <button (click)="update()" [disabled]="mode !== Mode.edit">Update</button>
 </form>
+<p *ngIf="errorMessage">{{errorMessage}}</p>
